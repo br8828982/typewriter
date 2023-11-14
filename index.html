@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="typewriter-text"></div>
+
+  <script>
+    const text = "Hello, Guys.";
+    const initialDelay = 0;
+    const loopDelay = 3000;
+    const delay = 100;
+    const textContainer = document.getElementById("typewriter-text");
+    let i = 0;
+
+    const type = () => {
+      const currentText = text.substring(0, i);
+      textContainer.textContent = currentText;
+
+      i = (i + 1) % (text.length + 1);
+
+      setTimeout(type, (i === 0) ? loopDelay : delay);
+    };
+
+    setTimeout(type, initialDelay);
+  </script>
+</body>
+
+</html>
